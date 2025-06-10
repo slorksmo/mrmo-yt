@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  remmina:
+    image: lscr.io/linuxserver/remmina:latest
+    container_name: Remmina
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=$TZ
+    volumes:
+      - $REMMINA_DATA:/config
+    ports:
+      - $REMMINA_PORT_1:3000
+      - $REMMINA_PORT_2:3001
+    restart: unless-stopped

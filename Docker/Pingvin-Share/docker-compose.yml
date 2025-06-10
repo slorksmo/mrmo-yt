@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  pingvin-share:
+    depends_on:
+      clamav:
+        condition: service_healthy
+    image: stonith404/pingvin-share
+    restart: unless-stopped
+    container_name: Pingvin-Share
+    ports:
+      - "$HOST_PORT:3000"
+    volumes:
+      - $APP_DATA:/opt/app/backend/data
+      - $APP_STORAGE:/opt/app/backend/data/uploads
+      - $APP_IMAGES:/opt/app/frontend/public/img
+  clamav:
+    restart: unless-stopped
+    image: clamav/clamav
+    container_name: ClamAV
