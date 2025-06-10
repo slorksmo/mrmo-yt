@@ -16,11 +16,31 @@
 
 ## 📦 Services Included
 
-| Service     | Description                                 | Port | Logo                                      |
-|-------------|---------------------------------------------|------|-------------------------------------------|
-| Portainer   | Visual Docker container manager             | 9000 | ![Portainer](https://www.portainer.io/hubfs/portainer-icon.png) |
-| Watchtower  | Auto-update Docker containers               | N/A  | ![Watchtower](https://containrrr.dev/watchtower/logo.png)        |
-| Homepage    | Modern dashboard for all homelab services   | 3000 | ![Homepage](https://gethomepage.dev/img/icon.svg)                |
+Here are all the Dockerized services currently deployed and managed via your Proxmox-based Homelab:
+
+| Service         | Description                                |
+|------------------|--------------------------------------------|
+| Actual Budget   | Budgeting tool                             |
+| Change-Detection| Website change monitoring                  |
+| FileZilla       | FTP Server                                  |
+| GoTTY           | Terminal sharing over Web                   |
+| Grafana         | Metrics dashboard                           |
+| IT-Tools        | Useful developer tools                      |
+| InfluxDB        | Time-series database                        |
+| Kdenlive        | Video editor container                      |
+| MinIO           | S3-compatible object storage                |
+| OpenTTD         | Multiplayer transport simulation game       |
+| Paperless-NGX   | Document management                         |
+| Pingvin-Share   | Self-hosted file sharing                    |
+| Plex Media Server | Media streaming server                   |
+| PrusaSlicer     | 3D printing slicer                          |
+| PyLoad          | Download manager                            |
+| Remmina         | Remote desktop client                       |
+| Syncthing       | Continuous file synchronization             |
+| Transmission    | BitTorrent client                           |
+| Uptime-Kuma     | Uptime monitoring                           |
+| Watch Tower     | Docker container auto-updater               |
+| Wordpress       | CMS blogging platform                       |
 
 ---
 
