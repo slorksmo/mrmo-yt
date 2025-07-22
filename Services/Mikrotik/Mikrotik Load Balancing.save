@@ -1,0 +1,67 @@
+#router
+	- ip:192.168.1.2
+	- GT: 192.168.1.1 
+s1
+ip > address list 
+	add ip rage /24
+ip > route list 
+	add routes router getway
+
+ip > DHCP Client	For test roters ip working
+
+s2
+nth 
+ip > firewall   > mangle
+2 mark connection 
+1   tab general
+	 .>  chain:prerouting
+	 .> src.address: 192.168.88.0/24   lan 
+	 .> connection state : new
+     tab extra 
+	 .> nth : every 2
+		  packet 1
+     tab action
+	 .> action: mark connection 
+	 .> new connection mark : line1-con * passthrough 
+
+2     tab general
+         .>  chain:prerouting
+         .> src.address: 192.168.88.0/24   lan
+         .> connection state : new
+     tab extra
+         .> nth : every 2
+                  packet 2
+     tab action
+         .> action: mark connection
+         .> new connection mark : line1-con * passthrough
+
+
+2 route
+     tab general
+         .>  chain:prerouting
+         .> src.address: 192.168.88.0/24   lan 
+         .> connection mark : line1-conn
+ 
+     tab action
+         .> action: mark routing 
+         .> new	routing mark	: line1-route * passthrough
+
+ip > route list 
+	+new route 
+	     Getway :192.168.1.1
+	     type: unicast
+	     scope: 30 
+	     target scope : 10
+	     routing mark : line1-route
+
+        +new route 
+             Getway :192.168.2.1
+             type: unicast
+             scope: 30 
+             target scope : 10
+             routing mark : line2-route
+
+ip > NAT
+     +nat rule 
+	chain: srcnat 
+ 	action: masquerade 

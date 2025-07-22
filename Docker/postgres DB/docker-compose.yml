@@ -1,0 +1,49 @@
+version: '3.9'
+
+networks:
+  internal_net:
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: StrongPasswordHere
+      POSTGRES_DB: main_db
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    networks:
+      - internal_net
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    container_name: adminer_pg
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8080"
+    networks:
+      - internal_net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@local.com
+      PGADMIN_DEFAULT_PASSWORD: StrongPasswordHere
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    ports:
+      - "9090:80"
+    networks:
+      - internal_net
+
