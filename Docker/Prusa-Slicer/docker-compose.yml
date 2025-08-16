@@ -1,21 +1,28 @@
-version: "2.1"
-services:
-  prusaslicer-novnc:
-    image: mikeah/prusaslicer-novnc
-    container_name: Prusa-Slicer-novnc
-    environment:
-      - SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
-      #- NVIDIA_DRIVER_CAPABILITIES="all"
-      #- NVIDIA_VISIBLE_DEVICES="all"
-    volumes:
-      - /home/mrp/nas/docker-stuff/prusa-prints:/prints/
-      - /home/mrp/docker/prusa-slicer:/configs/
-    ports:
-      - 8787:8080
-    restart: unless-stopped
-#    networks:
-#      - galaxy
+version: "3.9"
 
-#networks:
-#  galaxy:  # Updated to correct network name
-#    driver: bridge
+networks:
+  db_stack_internal_net:
+    external: true   # نفس الشبكة اللي فيها mariadb_db
+
+services:
+  babybuddy:
+    image: lscr.io/linuxserver/babybuddy:latest
+    container_name: babybuddy
+    environment:
+      - PUID=1000                 # عدّلهم لقيم user/group عندك
+      - PGID=1000
+      - TZ=Africa/Cairo
+      # إعدادات قاعدة البيانات طبقًا لتوثيق Baby Buddy:
+      - DB_ENGINE=django.db.backends.mysql
+      - DB_HOST=mariadb_db
+      - DB_PORT=3306
+      - DB_NAME=babybuddy_db      # أنشئها أو خلّي الصورة تنشئ الجداول بداخلها
+      - DB_USER=momaher           # لو حابب خصّص يوزر مختلف، غيّره هنا وفي MariaDB
+      - DB_PASSWORD=Mohamed@9498#
+    volumes:
+      - /home/mrmo/babybuddy/config:/config
+    ports:
+      - "8000:8000"               # غيّر البورت لو محجوز
+    restart: unless-stopped
+    networks:
+      - db_stack_internal_net
