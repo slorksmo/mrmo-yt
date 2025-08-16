@@ -1,1 +1,21 @@
-pending
+version: "3.9"
+
+services:
+  actual_server:
+    image: actualbudget/actual-server:latest
+    container_name: actual_budget
+    ports:
+      - "5006:5006"
+    volumes:
+      - /home/mrmo/actual/data:/data   # مسار مطلق وثابت
+    # لو عندك شهادة جاهزة، فكّ التعليقات:
+    # environment:
+    #   - ACTUAL_HTTPS_KEY=/data/certs/key.pem
+    #   - ACTUAL_HTTPS_CERT=/data/certs/cert.pem
+    healthcheck:
+      test: ["CMD-SHELL", "node src/scripts/health-check.js"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
