@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  drawnix:
+    build:
+      context: .                # مكان Dockerfile (جذر الريبو)
+      dockerfile: Dockerfile
+    container_name: drawnix_app
+    restart: unless-stopped
+    ports:
+      - "8087:80"               # غيّر 8087 لأي بورت تحبه
