@@ -7,7 +7,7 @@
 </p>
 <div align="center">
   <h2>
-    开源白板工具（SaaS），一体化白板，包含思维导图、流程图、自由画等
+    Open-source whiteboard tool (SaaS), an all-in-one collaborative canvas that includes mind mapping, flowcharts, freehand and more.
   <br />
   </h2>
 </div>
@@ -19,7 +19,7 @@
     </a>
     <figcaption>
       <p align="center">
-        All in one 白板，思维导图、流程图、自由画等
+      Whiteboard with mind mapping, flowcharts, freehand drawing and more
       </p>
     </figcaption>
   </figure>
@@ -36,56 +36,54 @@
   <a href="https://trendshift.io/repositories/13979" target="_blank"><img src="https://trendshift.io/api/badge/repositories/13979" alt="plait-board%2Fdrawnix | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 
-[*English README*](https://github.com/plait-board/drawnix/blob/develop/README_en.md)
+[*中文*](https://github.com/plait-board/drawnix/blob/develop/README.md)
 
-## 特性
+## Features
 
-- 💯 免费 + 开源
-- ⚒️ 思维导图、流程图
-- 🖌 画笔
-- 😀 插入图片
-- 🚀 基于插件机制
-- 🖼️ 📃 导出为 PNG, JSON(`.drawnix`)
-- 💾 自动保存（浏览器缓存）
-- ⚡ 编辑特性：撤销、重做、复制、粘贴等
-- 🌌 无限画布：缩放、滚动
-- 🎨 主题模式
-- 📱 移动设备适配
-- 📈 支持 mermaid 语法转流程图
-- ✨ 支持 markdown 文本转思维导图（新支持 🔥🔥🔥）
+- 💯 Free and Open Source
+- ⚒️ Mind Maps and Flowcharts
+- 🖌 Freehand
+- 😀 Image Support
+- 🚀 Plugin-based Architecture - Extensible
+- 🖼️ 📃 Export to PNG, JPG, JSON(.drawnix)
+- 💾 Auto-save (Browser Storage)
+- ⚡ Edit Features: Undo, Redo, Copy, Paste, etc.
+- 🌌 Infinite Canvas: Zoom, Pan
+- 🎨 Theme Support
+- 📱 Mobile-friendly
+- 📈 Support mermaid syntax conversion to flowchart
+- ✨ Support markdown text conversion to mind map（New 🔥🔥🔥）
 
 
-## 关于名称
+## About the Name
 
-***Drawnix***  ，源于绘画(  ***Draw***  )与凤凰(  ***Phoenix***  )的灵感交织。
+***Drawnix*** is born from the interweaving of ***Draw*** and ***Phoenix***, a fusion of artistic inspiration.
 
-凤凰象征着生生不息的创造力，而 *Draw* 代表着人类最原始的表达方式。在这里，每一次创作都是一次艺术的涅槃，每一笔绘画都是灵感的重生。
+The *Phoenix* symbolizes endless creativity, while *Draw* represents humanity's most fundamental form of expression. Here, each creation is an artistic rebirth, every stroke a renaissance of inspiration.
 
-创意如同凤凰，浴火方能重生，而  ***Drawnix***  要做技术与创意之火的守护者。
+Like a Phoenix, creativity must rise from the flames to be reborn, and ***Drawnix*** stands as the guardian of both technical and creative fire.
 
 *Draw Beyond, Rise Above.*
 
+## About Plait Drawing Framework
 
-## 与 Plait 画图框架
-
-*Drawnix* 的定位是一个开箱即用、开源、免费的工具产品，它的底层是 *Plait* 框架，*Plait* 是我司开源的一款画图框架，代表着公司在知识库产品上的重要技术沉淀。
-
-
-Drawnix 是插件架构，与前面说到开源工具比技术架构更复杂一些，但是插件架构也有优势，比如能够支持多种 UI 框架（*Angular、React*），能够集成不同富文本框架（当前仅支持 *Slate* 框架），在开发上可以很好的实现业务的分层，开发各种细粒度的可复用插件，可以扩展更多的画板的应用场景。
+*Drawnix* is positioned as an out-of-the-box, *open-source*, and free tool product. It is built on top of the *Plait* framework, which is our company's *open-source* drawing framework representing significant technical accumulation in knowledge base products.
 
 
-## 仓储结构
+*Drawnix* uses a *plugin architecture*, which is technically more complex than the previously mentioned *open-source* tools. However, this *plugin architecture* has its advantages: it supports multiple *UI frameworks* (*Angular*, *React*), integrates with different *rich text frameworks* (currently only supporting *Slate* framework), enables better business layer separation in development, allows development of various fine-grained reusable plugins, and can expand to more whiteboard application scenarios.
+
+## Repository Structure
 
 ```
 drawnix/
 ├── apps/
 │   ├── web                   # drawnix.com
 │   │    └── index.html       # HTML
-├── dist/                     # 构建产物
+├── dist/                     # Build artifacts
 ├── packages/
-│   └── drawnix/              # 白板应用
-│   └── react-board/          # 白板 React 视图层
-│   └── react-text/           # 文本渲染模块
+│   └── drawnix/              # Whiteboard application core
+│   └── react-board/          # Whiteboard react view layer
+│   └── react-text/           # Text rendering module
 ├── package.json
 ├── ...
 └── README.md
@@ -93,14 +91,14 @@ drawnix/
 
 ```
 
-## 应用
+## Try It Out
 
-[*https://drawnix.com*](https://drawnix.com) 是 *drawnix* 的最小化应用。
+*https://drawnix.com* is the minimal application of *drawnix*.
 
-近期会高频迭代 drawnix.com，直到发布 *Dawn（破晓）* 版本。
+I will be iterating frequently on *drawnix.com* until the release of the *Dawn* version.
 
 
-## 开发
+## Development
 
 ```
 npm install
@@ -114,27 +112,25 @@ npm run start
 docker pull pubuzhixing/drawnix:latest
 ```
 
-## 依赖
+## Dependencies
 
-- [plait](https://github.com/worktile/plait) - 画图框架
-- [slate](https://github.com/ianstormtaylor/slate)  - 富文本编辑器框架
-- [floating-ui](https://github.com/floating-ui/floating-ui)  - 一个超级好用的创建弹出层基础库
+- [plait](https://github.com/worktile/plait) - Drawing framework
+- [slate](https://github.com/ianstormtaylor/slate) - Rich text editor framework
+- [floating-ui](https://github.com/floating-ui/floating-ui) - An awesome library for creating floating UI elements
 
 
+## Contributing
 
-## 贡献
+Any form of contribution is welcome:
 
-欢迎任何形式的贡献：
+- Report bugs
 
-- 提 Bug
+- Contribute code
 
-- 贡献代码
+## Support Us
 
-## 支持
-
-*欢迎大家 star ⭐️⭐️⭐️ 支持。*
-
+*Please show your support by giving us a star ⭐️⭐️⭐️.*
 
 ## License
 
-[MIT License](https://github.com/plait-board/drawnix/blob/master/LICENSE)  
+[MIT License](https://github.com/plait-board/drawnix/blob/master/LICENSE)
